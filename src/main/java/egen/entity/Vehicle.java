@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
 
-@Entity(name = "Vehicle")
+@Entity(name="Vehicle")
 public class Vehicle {
 
     //check
