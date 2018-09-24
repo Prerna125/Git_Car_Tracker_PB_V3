@@ -22,11 +22,11 @@ public class VehicleServiceImpl implements VehicleService {
         return (List<Vehicle>) repository.findAll();
     }
 
-    @Transactional
-    public List<Vehicle> loadAll(List<Vehicle> vehicleList) {
-
-        return (List<Vehicle>) repository.saveAll(vehicleList);
-    }
+//    @Transactional
+//    public List<Vehicle> loadAll(List<Vehicle> vehicleList) {
+//
+//        return (List<Vehicle>) repository.saveAll(vehicleList);
+//    }
 
 
     @Transactional

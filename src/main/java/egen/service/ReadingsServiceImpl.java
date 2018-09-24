@@ -20,7 +20,7 @@ public class ReadingsServiceImpl implements ReadingsService{
     @Transactional
     public Readings create(Readings reading) {
         Optional<Readings> existing = repository.findById(reading.getVin());
-        if(!existing.isPresent()) {
+        if(existing.isPresent()) {
             throw new BadRequestException("Vehicle with vin " + reading.getVin() + " already exists");
         }
         return repository.save(reading);

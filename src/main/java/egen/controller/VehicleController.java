@@ -23,12 +23,12 @@ public class VehicleController {
         return service.findAll();
     }
 
-    @RequestMapping(method = RequestMethod.PUT,
-            consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
-            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<Vehicle> loadAll(@RequestBody List<Vehicle> vehicleList) {
-        return service.loadAll(vehicleList);
-    }
+//    @RequestMapping(method = RequestMethod.PUT,
+//            consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
+//            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+//    public List<Vehicle> loadAll(@RequestBody List<Vehicle> vehicleList) {
+//        return service.loadAll(vehicleList);
+//    }
 
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

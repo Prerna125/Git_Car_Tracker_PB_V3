@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "http://mocker.egen.io")
-@RequestMapping(value = "http://localhost:8080/readings")
+@RequestMapping(value = "readings")
 @ResponseBody
 public class ReadingsController {
 
