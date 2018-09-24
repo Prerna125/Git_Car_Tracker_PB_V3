@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://mocker.egen.io")
-@RequestMapping(value = "http://localhost:8080/vehicles")
+//@CrossOrigin(origins = "http://mocker.egen.io")
+@RequestMapping(value = "/vehicles")
 //@Api(description = "Vehicle related endpoints")
 public class VehicleController {
 

@@ -40,7 +40,6 @@ public class VehicleServiceImpl implements VehicleService {
             else {
                 throw new ResourceNotFoundException("Vehicle with id="+ vehicle.getVin() + "NOT FOUND");
             }
-
     }
 
 
