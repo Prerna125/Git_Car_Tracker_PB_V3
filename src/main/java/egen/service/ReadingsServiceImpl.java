@@ -2,12 +2,14 @@ package egen.service;
 
 
 import egen.entity.Readings;
+import egen.entity.Vehicle;
 import egen.exception.BadRequestException;
 import egen.repository.ReadingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -24,5 +26,10 @@ public class ReadingsServiceImpl implements ReadingsService{
             throw new BadRequestException("Vehicle with vin " + reading.getVin() + " already exists");
         }
         return repository.save(reading);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Readings> findAll() {
+        return (List<Readings>) repository.findAll();
     }
 }

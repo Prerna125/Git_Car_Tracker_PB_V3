@@ -1,6 +1,8 @@
 package egen.service;
 
+import egen.entity.Readings;
 import egen.entity.Vehicle;
+import egen.exception.BadRequestException;
 import egen.exception.ResourceNotFoundException;
 import egen.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +24,27 @@ public class VehicleServiceImpl implements VehicleService {
         return (List<Vehicle>) repository.findAll();
     }
 
-//    @Transactional
-//    public List<Vehicle> loadAll(List<Vehicle> vehicleList) {
-//
-//        return (List<Vehicle>) repository.saveAll(vehicleList);
-//    }
+    @Transactional
+    public Vehicle create(Vehicle vehicle){
+    Optional<Vehicle> existing = repository.findById(vehicle.getVin());
+        if(existing.isPresent()) {
+        throw new BadRequestException("Vehicle with vin " + vehicle.getVin() + " already exists");
+    }
+        return repository.save(vehicle);
+}
+
+    @Transactional
+    public List<Vehicle> loadAll(List<Vehicle> list) {
+
+        for(Vehicle vehicle : list){
+            Optional<Vehicle> existing = repository.findById(vehicle.getVin());
+            if(!existing.isPresent() || existing.isPresent()){
+                repository.save(vehicle);
+        }
+    }
+        return list;
+    }
+
 
 
     @Transactional
